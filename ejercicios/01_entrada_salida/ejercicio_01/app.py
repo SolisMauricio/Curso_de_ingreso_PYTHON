@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: mauricio
+apellido: solis del castillo
 ---
 Ejercicio: entrada_salida_01
 ---
@@ -28,8 +28,13 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
+        #alert('Esto es un titulo' , 'Esto es un mensaje')
+        #salida_prompt = prompt('Titulo' , 'Mensaje')
+        #alert('salida prompt' , type(salida_prompt))
+        #salida_question = question('titulo' , 'mensaje')
+        #alert('salida cuestion' , salida_question)
+        alert('ej 1' , 'titulo' , 'esto no anda, funciona')
+
 
 if __name__ == "__main__":
     app = App()

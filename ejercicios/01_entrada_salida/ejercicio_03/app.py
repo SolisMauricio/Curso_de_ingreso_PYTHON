@@ -34,7 +34,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        dato_caja_texto = self.txt_nombre.get()
+        alert('dato obtenido' , dato_caja_texto)
                 
     
 if __name__ == "__main__":
