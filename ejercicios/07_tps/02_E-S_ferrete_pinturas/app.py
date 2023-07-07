@@ -8,11 +8,13 @@ import customtkinter
 Enunciado:
 
 2.	Para el departamento de Pinturas:
-	A.	Al ingresar una temperatura en Fahrenheit debemos mostrar la temperatura en Centígrados con un mensaje concatenado 
-        (0 °F − 32) × 5/9 = -17,78 °C
+	A.	Al ingresar una temperatura en Fahrenheit debemos mostrar la
+    temperatura en Centígrados con un mensaje concatenado
+    (0 °F − 32) × 5/9 = -17,78 °C
 
-    B.	Al ingresar una temperatura en Centígrados debemos mostrar la temperatura en Fahrenheit 
-        (0 °C × 9/5) + 32 = 32 °F
+    B.	Al ingresar una temperatura en Centígrados debemos mostrar la
+    temperatura en Fahrenheit 
+    (0 °C × 9/5) + 32 = 32 °F
 
     
 '''
@@ -44,13 +46,28 @@ class App(customtkinter.CTk):
         self.btn_convertir_f_c.grid(row=4, pady=10, columnspan=2, sticky="nsew")
     
     def btn_convertir_c_f_on_click(self):
-        pass
+        
+        temperatura_centigrados = self.txt_temperatura_c.get()
+        temperatura_centigrados = float(temperatura_centigrados)
+
+        resultado_conversion = round((temperatura_centigrados * 9/5) + 32, 2)
+
+        mensaje = f'{temperatura_centigrados} grados centigrados son: {resultado_conversion} grados fahrenheit'
+        alert(title='conversion', message=mensaje)
 
     def btn_convertir_f_c_on_click(self):
-        pass
+        
+        temperatura_fahrenheit = self.txt_temperatura_f.get()
+        temperatura_fahrenheit = float(temperatura_fahrenheit)
+
+        resultado_conversion = round((temperatura_fahrenheit - 32) * 5/9, 2)
+
+        mensaje = f'{temperatura_fahrenheit} grados fahrenheit son: {resultado_conversion} grados centigrados'
+        alert(title='conversion', message=mensaje)
     
-    
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
