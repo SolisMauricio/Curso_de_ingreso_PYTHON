@@ -12,7 +12,8 @@ a la hora de realizar un alambrado permetral, se le solicita al usuario que ingr
 
     A. Informar los metros cuadrados del terreno y los metros lineales del perimetro
     B. Informar la cantidad de postes de quebracho Grueso de 2.4 mts (van cada 250 mts lineales y en las esquinas).
-    C. Informar la cantidad de postes de quebracho Fino de 2.2 mts (van cada 12 mts lineales, si en es lugar no se encuentra el poste grueso).
+    C. Informar la cantidad de postes de quebracho Fino de 2.2 mts (van cada 12 mts lineales, si en es lugar no se encuentra el
+    poste grueso).
     D. Informar la cantidad de varillas (van cada 2 mts lineales).
     E. Informar la cantidad de alambre alta resistencia 17/15 considerando 7 hilos.
 
@@ -63,7 +64,45 @@ class App(customtkinter.CTk):
         self.btn_calcular.grid(row=3, pady=10, columnspan=2, sticky="nsew")
 
     def btn_calcular_on_click(self):
-        pass
+        #variables para constantes
+        postes_gruesos = 250 #(metros)
+        postes_gruesos_esquinas = 4 #(postes de las esquinas)
+
+        postes_finos = 12 #(metros)
+
+        varillas = 2 #(metros)
+
+        vueltas_alambre = 7 #(vueltas al perimetro)
+
+        
+        largo_terreno = self.txt_largo.get()
+        ancho_terreno = self.txt_ancho.get()
+
+        largo_terreno = int(largo_terreno)
+        ancho_terreno = int(ancho_terreno)
+
+        # punto A metros cuadrados
+        metros_cuadrados = largo_terreno * ancho_terreno
+        #punto A metros lineales
+        metros_lineales = (largo_terreno + ancho_terreno) * 2
+
+        # punto B 
+        cantidad_postes_gruesos = metros_lineales // postes_gruesos + postes_gruesos_esquinas
+
+        # punto C 
+        cantidad_postes_finos = metros_lineales // postes_finos
+
+        # punto D
+        cantidad_varillas = metros_lineales // varillas
+
+        # punto E 
+        cantidad_alambre = metros_lineales * vueltas_alambre
+
+        datos_a_informar = f'los metros cuandrados son: {metros_cuadrados} mts, el perimetro es de: {metros_lineales} mts, cantidad de postes gruesos es de: {cantidad_postes_gruesos} postes, la cantidad de postes finos es de: {cantidad_postes_finos} postes, la cantidad de varillas es de: {cantidad_varillas} varillas, la cantidad de alambre es de {cantidad_alambre} mts '
+
+        alert(title='lista de materiales', message=datos_a_informar)
+
+
 
 
 if __name__ == "__main__":
