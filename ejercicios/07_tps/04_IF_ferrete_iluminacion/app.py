@@ -5,7 +5,7 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-Todas las lámparas están  al mismo precio de $800 pesos final.
+Todas las lámparas están  al mismo precio de $precio_lamparas pesos final.
 		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
 		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
 		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
@@ -38,10 +38,48 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        cantidad_lamparas = self.combobox_cantidad.get()
+        marca_lamparas = self.combobox_marca.get()
+
+        cantidad_lamparas = int(cantidad_lamparas)
+        precio_lamparas = 800
+
+        #punto A
+        if cantidad_lamparas >= 6:
+            precio_final = (precio_lamparas * cantidad_lamparas) * 0.50
+        else: #punto B
+            if cantidad_lamparas == 5:
+                if marca_lamparas == "ArgentinaLuz":
+                    precio_final = (precio_lamparas * cantidad_lamparas) * 0.60
+                else:
+                    precio_final = (precio_lamparas * cantidad_lamparas) * 0.70
+            else: #punto C        
+                if cantidad_lamparas == 4:
+                    if marca_lamparas == "ArgentinaLuz" or "FelipeLamparas":
+                        precio_final = (precio_lamparas * cantidad_lamparas) * 0.75
+                    else:
+                        precio_final = (precio_lamparas * cantidad_lamparas) * 0.80
+                else: #punto D
+                    if cantidad_lamparas == 3:
+                        if marca_lamparas == "ArgentinaLuz":
+                            precio_final = (precio_lamparas * cantidad_lamparas) * 0.85
+                        else:
+                            if marca_lamparas == "FelipeLamparas":
+                                precio_final = (precio_lamparas * cantidad_lamparas) * 0.90
+                            else:
+                                precio_final = (precio_lamparas * cantidad_lamparas) * 0.95
         
-    
+        if precio_final > 4000: #punto E
+            precio_final = precio_final * 0.95
+
+        mensaje = f'usted compro: {cantidad_lamparas} lamparas \n total a pagar: {precio_final}'
+
+        alert(title='lamparas', message=mensaje)
+                   
+
+                    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+         

@@ -90,7 +90,7 @@ class App(customtkinter.CTk):
         cantidad_postes_gruesos = metros_lineales // postes_gruesos + postes_gruesos_esquinas
 
         # punto C 
-        cantidad_postes_finos = metros_lineales // postes_finos
+        cantidad_postes_finos = metros_lineales // postes_finos - cantidad_postes_gruesos
 
         # punto D
         cantidad_varillas = metros_lineales // varillas
