@@ -68,6 +68,8 @@ class App(customtkinter.CTk):
                                 precio_final = (precio_lamparas * cantidad_lamparas) * 0.90
                             else:
                                 precio_final = (precio_lamparas * cantidad_lamparas) * 0.95
+                    else:
+                        precio_final = precio_lamparas * cantidad_lamparas
         
         if precio_final > 4000: #punto E
             precio_final = precio_final * 0.95
