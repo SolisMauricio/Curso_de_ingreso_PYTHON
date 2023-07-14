@@ -38,6 +38,53 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
+        # cantidad_lamparas = self.combobox_cantidad.get()
+        # marca_lamparas = self.combobox_marca.get()
+
+        # cantidad_lamparas = int(cantidad_lamparas)
+        # precio_lamparas = 800
+
+        # #punto A
+        # if cantidad_lamparas >= 6:
+        #     descuento = 0.50
+        # else: #punto B
+        #     if cantidad_lamparas == 5:
+        #         if marca_lamparas == "ArgentinaLuz":
+        #             descuento = 0.60
+        #         else:
+        #             descuento = 0.70
+            
+        #     else: #punto C        
+        #         if cantidad_lamparas == 4:
+        #             if marca_lamparas == "ArgentinaLuz" or "FelipeLamparas":
+        #                 descuento = 0.75
+        #             else:
+        #                 descuento = 0.80
+                
+        #         else: #punto D
+        #             if cantidad_lamparas == 3:
+        #                 if marca_lamparas == "ArgentinaLuz":
+        #                     descuento = 0.85
+        #                 else:
+        #                     if marca_lamparas == "FelipeLamparas":
+        #                         descuento = 0.90
+        #                     else:
+        #                         descuento = 0.95
+                    
+        #             else:
+        #                 precio_final = precio_lamparas * cantidad_lamparas
+        
+        # precio_final = (precio_lamparas * cantidad_lamparas) * descuento
+
+        # if precio_final > 4000: #punto E
+        #     precio_final = precio_final * 0.95
+
+        # mensaje = f'usted compro: {cantidad_lamparas} lamparas \n total a pagar: {precio_final}'
+
+        # alert(title='lamparas', message=mensaje)
+
+        '''elif'''
+
         cantidad_lamparas = self.combobox_cantidad.get()
         marca_lamparas = self.combobox_marca.get()
 
@@ -46,37 +93,110 @@ class App(customtkinter.CTk):
 
         #punto A
         if cantidad_lamparas >= 6:
-            precio_final = (precio_lamparas * cantidad_lamparas) * 0.50
-        else: #punto B
-            if cantidad_lamparas == 5:
+            descuento = 0.50
+        elif cantidad_lamparas == 5: #punto B
                 if marca_lamparas == "ArgentinaLuz":
-                    precio_final = (precio_lamparas * cantidad_lamparas) * 0.60
+                    descuento = 0.60
                 else:
-                    precio_final = (precio_lamparas * cantidad_lamparas) * 0.70
-            else: #punto C        
-                if cantidad_lamparas == 4:
-                    if marca_lamparas == "ArgentinaLuz" or "FelipeLamparas":
-                        precio_final = (precio_lamparas * cantidad_lamparas) * 0.75
-                    else:
-                        precio_final = (precio_lamparas * cantidad_lamparas) * 0.80
-                else: #punto D
-                    if cantidad_lamparas == 3:
-                        if marca_lamparas == "ArgentinaLuz":
-                            precio_final = (precio_lamparas * cantidad_lamparas) * 0.85
-                        else:
-                            if marca_lamparas == "FelipeLamparas":
-                                precio_final = (precio_lamparas * cantidad_lamparas) * 0.90
-                            else:
-                                precio_final = (precio_lamparas * cantidad_lamparas) * 0.95
-                    else:
-                        precio_final = precio_lamparas * cantidad_lamparas
-        
+                    descuento = 0.70
+       
+        elif cantidad_lamparas == 4: #punto C
+                if marca_lamparas == "ArgentinaLuz" or "FelipeLamparas":
+                    descuento = 0.75
+                else:
+                    descuento = 0.80                 
+
+        elif cantidad_lamparas == 3: #punto D
+            if marca_lamparas == "ArgentinaLuz":
+                descuento = 0.85
+            else:
+                if marca_lamparas == "FelipeLamparas":
+                    descuento = 0.90
+                else:
+                    descuento = 0.95
+        else:
+            precio_final = precio_lamparas * cantidad_lamparas
+
+        precio_final = (precio_lamparas * cantidad_lamparas) * descuento
+
         if precio_final > 4000: #punto E
             precio_final = precio_final * 0.95
 
         mensaje = f'usted compro: {cantidad_lamparas} lamparas \n total a pagar: {precio_final}'
 
         alert(title='lamparas', message=mensaje)
+            
+
+        # '''match'''
+
+        # cantidad_lamparas = self.combobox_cantidad.get()
+        # marca_lamparas = self.combobox_marca.get()
+
+        # cantidad_lamparas = int(cantidad_lamparas)
+        # precio_lamparas = 800
+
+        # match cantidad_lamparas:
+        #     case 6:
+        #         descuento = 0.50
+        #     case 5:
+        #         if marca_lamparas == "ArgentinaLuz":
+        #             descuento = 0.60
+        #         else:
+        #             descuento = 0.70
+        #     case 4:
+        #         if marca_lamparas == "ArgentinaLuz" or "FelipeLamparas":
+        #             descuento = 0.75
+        #         else:
+        #             descuento = 0.80
+        #     case 3:
+        #         if marca_lamparas == "ArgentinaLuz":
+        #             descuento = 0.85
+        #         else:
+        #             if marca_lamparas == "FelipeLamparas":
+        #                 descuento = 0.90
+        #     case 2 | 1:
+        #         descuento = 0
+        #     case _:
+        #         descuento = 0.50
+
+        # precio_final = (precio_lamparas * cantidad_lamparas) * descuento
+
+        # if precio_final > 4000: #punto E
+        #     precio_final = precio_final * 0.95
+
+        # mensaje = f'usted compro: {cantidad_lamparas} lamparas \n total a pagar: {precio_final}'
+
+        # alert(title='lamparas', message=mensaje)
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+                
+                
+
+
+                
+
+
                    
 
                     
