@@ -43,7 +43,47 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        edad = self.txt_edad.get()
+        tipo_votante = self.combobox_tipo.get()
+
+        '''opcion con if anidados'''
+
+        edad = int(edad)
+
+        # if edad >= 16:
+        #     if tipo_votante == "NATIVO":
+        #         mensaje = f'ciudadano {tipo_votante.lower()} de {edad} años habilitado para votar'
+        #     else:    
+        #         if edad >= 18:
+        #             if tipo_votante == "NATURALIZADO":
+        #                 mensaje = f'ciudadano {tipo_votante.lower()} de {edad} años habilitado para votar'
+        #         else:
+        #             mensaje = 'ciudadano no habilitado para votar'
+        # else:
+        #     mensaje = 'ciudadano no habilitado para votar'           
+
+        # alert(title='votar', message=mensaje)
+
+        '''opcion con elif'''
+
+        if edad >= 16:
+            if tipo_votante == "NATIVO":
+                mensaje = f'ciudadano {tipo_votante.lower()} de {edad} años habilitado para votar'
+            elif edad >= 18:
+                if tipo_votante == "NATURALIZADO":
+                    mensaje = f'ciudadano {tipo_votante.lower()} de {edad} años habilitado para votar'
+            else:
+                mensaje = 'ciudadano no habilitado para votar'
+        else:
+            mensaje = 'ciudadano no habilitado'            
+
+        alert(title='votar', message=mensaje)
+        
+
+                
+                    
+
+
         
         
     

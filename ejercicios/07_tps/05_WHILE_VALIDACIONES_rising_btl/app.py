@@ -50,7 +50,64 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+
+        apellido = prompt("datos", "apellido")
+        while apellido is None or not apellido.isalpha():
+            apellido = prompt("error", "ingrese un apellido valido")
+        
+        edad = prompt("datos", "edad")
+        while edad is None or not edad.isdigit() or (int(edad) < 18 or int(edad) > 90):
+            edad = prompt("error", "ingrese una edad valida")
+            
+        estado_civil = prompt("datos", "estado civil [Casado/Casada, Soltero/Soltera, Divorciado/Divorciada, Viudo/ Viuda]")
+        while estado_civil != "Casado" and estado_civil !="Casada" and estado_civil != "Soltero" and estado_civil != "Soltera" and estado_civil != "Divorsiado" and estado_civil != "Divorciada" and estado_civil != "Viudo" and estado_civil != "Viuda":
+            estado_civil = prompt("error", "ingrse un estado civil correcto")
+
+        match estado_civil:
+            case "soltero" | "soltera":
+                estado_civil= "soltero/a"
+            case "Casado" | "casada":
+                estado_civil= "casado/a"
+            case "divorsiado" | "divorciada":
+                estado_civil = "divorsiado/a"
+            case _:
+                estado_civil = "viudo/a"
+        
+        legajo = prompt("datos", "ingrese su nemero de legajo")
+        while legajo is None or not legajo.isdigit() or int(legajo) < 999:
+            legajo = prompt("error", "ingrese un numero de legajo valido")
+
+        self.txt_apellido.delete(0, tkinter.END)
+        self.txt_apellido.insert(0, apellido)
+
+        self.txt_edad.delete(0, tkinter.END)
+        self.txt_edad.insert(0, edad)
+
+        #self.combobox_tipo.delete(0, 100)
+        self.combobox_tipo.set(estado_civil)
+
+        self.txt_legajo.delete(0, tkinter.END)
+        self.txt_legajo.insert(0, legajo)
+
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
