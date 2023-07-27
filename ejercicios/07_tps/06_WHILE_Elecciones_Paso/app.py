@@ -41,17 +41,17 @@ class App(customtkinter.CTk):
         while continuar == True:
             nombre = prompt("datos", "nombre")
             while nombre is None or not nombre.isalpha():
-                nombre = prompt("Error", "ingrese nuevamente su nombre")
+                nombre = prompt("Error", "Ingrese nuevamente su nombre")
             
             edad = prompt("datos", "edad")
             while edad is None or not edad.isdigit or int(edad) < 25:
-                edad = prompt("Error", "ingrese nuevamente su edad")
+                edad = prompt("Error", "Ingrese nuevamente su edad")
             
             edad = int(edad)
             
-            cantidad_votos = prompt("datos", "ingrese cantidad de votos (no menor a ceros)")
+            cantidad_votos = prompt("datos", "Ingrese cantidad de votos (no menor a ceros)")
             while cantidad_votos is None or not cantidad_votos.isdigit() or int(cantidad_votos) < 0:
-                cantidad_votos = prompt("Error", "ingrese nuevamente la cantidad de votos")
+                cantidad_votos = prompt("Error", "Ingrese nuevamente la cantidad de votos")
 
             cantidad_votos = int(cantidad_votos)
 
