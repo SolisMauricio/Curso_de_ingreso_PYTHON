@@ -53,15 +53,15 @@ class App(customtkinter.CTk):
 
         apellido = prompt("datos", "apellido")
         while apellido is None or not apellido.isalpha():
-            apellido = prompt("error", "ingrese un apellido valido")
+            apellido = prompt("Error", "ingrese un apellido valido")
         
         edad = prompt("datos", "edad")
         while edad is None or not edad.isdigit() or (int(edad) < 18 or int(edad) > 90):
-            edad = prompt("error", "ingrese una edad valida")
+            edad = prompt("Error", "ingrese una edad valida")
             
         estado_civil = prompt("datos", "estado civil [Casado/Casada, Soltero/Soltera, Divorciado/Divorciada, Viudo/ Viuda]")
         while estado_civil != "Casado" and estado_civil !="Casada" and estado_civil != "Soltero" and estado_civil != "Soltera" and estado_civil != "Divorsiado" and estado_civil != "Divorciada" and estado_civil != "Viudo" and estado_civil != "Viuda":
-            estado_civil = prompt("error", "ingrse un estado civil correcto")
+            estado_civil = prompt("Error", "ingrse un estado civil correcto")
 
         match estado_civil:
             case "soltero" | "soltera":
@@ -75,7 +75,7 @@ class App(customtkinter.CTk):
         
         legajo = prompt("datos", "ingrese su nemero de legajo")
         while legajo is None or not legajo.isdigit() or int(legajo) < 999:
-            legajo = prompt("error", "ingrese un numero de legajo valido")
+            legajo = prompt("Error", "ingrese un numero de legajo valido")
 
         self.txt_apellido.delete(0, tkinter.END)
         self.txt_apellido.insert(0, apellido)
