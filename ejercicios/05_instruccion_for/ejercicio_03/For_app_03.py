@@ -29,8 +29,19 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
 
+        numero_pedido = self.txt_repetir.get()
+
+        while numero_pedido is None or not numero_pedido.isdigit():
+            alert("error", "reingrese el numero")
+            numero_pedido = prompt("error", "ingrese nuevamente el numero")
+
+
+
+
+        numero_pedido = int(numero_pedido)
+        for _ in range(numero_pedido):
+            print(_ +1, "hola UTN FRA")
         
         
     

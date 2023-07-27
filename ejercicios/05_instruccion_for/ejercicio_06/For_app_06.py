@@ -22,7 +22,17 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        
+        contador_numeros_pares = 0
+        numero_ingresado = prompt("numero", "numero")
+        numero_ingresado = int(numero_ingresado)
+
+        for numero_ingresado in range(1, numero_ingresado + 1):
+            if numero_ingresado % 2 == 0:
+                contador_numeros_pares += 1
+                print(numero_ingresado)     
+        print(f"la cantidad de numeros pares encotrados es: {contador_numeros_pares}")
+
         
     
 if __name__ == "__main__":

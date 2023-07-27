@@ -21,7 +21,18 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+    
+        for numero in range(1000):
+            numero = prompt("numero", "numero")
+            numero = int(numero)
+            if numero == 9:
+                break
+            print(f"el numero {numero} es incorrecto")
+        print(f"el numero {numero} es el correcto")
+
+
+
+
         
     
 if __name__ == "__main__":

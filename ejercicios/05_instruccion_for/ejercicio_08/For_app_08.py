@@ -21,7 +21,23 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        
+        numero_primo = prompt("numero", "numero")
+        while not numero_primo.isdigit():
+            numero_primo = prompt("numero", "numero")
+        numero_primo = int(numero_primo)
+        
+        if numero_primo > 1:
+            for divisor in range(2, numero_primo):
+                if numero_primo % divisor == 0:
+                    print(f"el numero {numero_primo} no es primo")
+                    break
+                else:
+                    print(f"el numero {numero_primo} es primo")
+                    break
+        else: 
+            print(f"el numero {numero_primo} no es primo")
+                    
     
 if __name__ == "__main__":
     app = App()
